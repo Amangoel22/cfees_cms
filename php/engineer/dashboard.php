@@ -34,9 +34,6 @@ $complaints = $conn->query("
   ORDER BY c.created_at DESC
 ");
 
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +62,9 @@ $complaints = $conn->query("
     cursor: not-allowed;
     font-size: 15px;
 }
-
+.not-resolved-indicator{
+  background-color:rgb(164, 21, 21);
+}
   </style>
 </head>
 <body>
@@ -97,7 +96,7 @@ $complaints = $conn->query("
       <nav class="sidebar-nav">
         <ul>
           <li><a href="MyProfile.php"><i class="fas fa-user"></i> My Profile</a></li>
-          <li><a href="records.php"><i class="fas fa-comments"></i> Complaints Record</a></li>
+          <li><a href="records.php"><i class="fa-solid fa-screwdriver-wrench"></i> Complaints Record</a></li>
            <li><a href="logout.php"><i class="fa fa-right-from-bracket"></i> Logout</a></li>
         </ul>
       </nav>
@@ -181,9 +180,7 @@ $complaints = $conn->query("
       <p><strong>Description:</strong> <span id="r_desc"></span></p>
       <p><strong>Intercom:</strong> <span id="r_intercom"></span></p>
       <p><strong>Location:</strong> <span id="r_location"></span></p>
-    <button id="markReviewBtn" onclick="markReviewed()">Mark as Reviewed</button>
-
-
+      <button id="markReviewBtn" onclick="markReviewed()">Mark as Reviewed</button>
     </div>
   </div>
 
@@ -305,7 +302,7 @@ function markReviewed() {
 
 
 function submitResolution() {
-  const feedback = document.getElementById('feedbackText').value.trim();
+  const feedback = document.getElementById('f_reason').value.trim();
   if (feedback === '') {
     alert('Please enter feedback or reason.');
     return;

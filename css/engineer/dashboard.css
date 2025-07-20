@@ -1,3 +1,8 @@
+*{
+  margin:0px;
+  padding:0px;
+}
+
 body {
   font-family: 'DM Sans', sans-serif;
   background-color: #f0f2f5;
@@ -50,7 +55,7 @@ body {
 
 .sidebar{
   padding-top:30px;
-    padding-right:20px;
+  padding-right:30px;
 
 }
 
@@ -58,7 +63,8 @@ body {
   list-style: none;
   width: 100%;
   padding-top: 20px;
-  padding-right:20px;
+  padding-right:30px;
+  padding-left: 30px;
 }
 
 .sidebar-nav ul {
@@ -220,23 +226,23 @@ input[type="text"] {
 }
 
 .header-center h1 {
-  font-size: 18px;    
+  font-size: 20px;    
   font-weight: 600;
   margin-bottom: 4px;
   line-height: 1.2;
 }
 
 .header-center h2 {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
   margin: 4px 0;
   line-height: 1.2;
 }
 
 .header-center p {
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 400;
-  margin: 2px 0;
+  margin: 3px 0;
 }
 
 
@@ -263,6 +269,7 @@ input[type="text"] {
   max-width: 90%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   gap:16px;
+  
 }
 
 .modal-content h3 {
@@ -333,6 +340,7 @@ input[type="text"] {
   border: none;
   border-radius: 12px;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 #feedbackSection {

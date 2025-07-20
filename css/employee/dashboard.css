@@ -501,3 +501,34 @@ color: white;
     border: none;
     border-radius: 12px;
 }
+
+#edit-delete-btns {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#edit-delete-btns form {
+  display: inline-block;
+    margin: 0 65px;
+    padding: 0px;
+}
+
+.header-center h1 {
+  font-size: 20px;    
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.header-center h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 4px 0;
+  line-height: 1.2;
+}
+
+.header-center p {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 3px 0;
+}

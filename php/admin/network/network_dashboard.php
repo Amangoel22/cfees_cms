@@ -162,13 +162,26 @@ while ($eng = $engineers->fetch_assoc()) {
             )">Review</button>
           <?php endif; ?>
         </td>
-        <td>
-          <?php if ($row['assigned_engineer_username']): ?>
-            <span><?php echo htmlspecialchars($row['assigned_engineer_username']); ?></span>
-          <?php else: ?>
-            <button class="assign" onclick="openAssignModal('<?php echo $row['complaint_id']; ?>')" data-id="<?php echo $row['complaint_id']; ?>">Assign</button>
-          <?php endif; ?>
-        </td>
+       <td>
+  <?php if (!empty($row['assigned_engineer_username'])): ?>
+    <?php
+      $assignedUsername = $row['assigned_engineer_username'];
+      $displayName = $assignedUsername;
+
+      foreach ($engineer_list as $eng) {
+        if ($eng['username'] === $assignedUsername) {
+          $displayName = $eng['full_name'];
+          break;
+        }
+      }
+
+      echo '<span>' . htmlspecialchars($displayName, ENT_QUOTES, 'UTF-8') . '</span>';
+    ?>
+  <?php else: ?>
+    <button class="assign" onclick="openAssignModal('<?php echo $row['complaint_id']; ?>')" data-id="<?php echo $row['complaint_id']; ?>">Assign</button>
+  <?php endif; ?>
+</td>
+
       </tr>
     <?php endwhile; ?>
   <?php else: ?>

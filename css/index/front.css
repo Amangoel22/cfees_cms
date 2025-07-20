@@ -118,3 +118,19 @@ a {
     color: inherit;        
     cursor: pointer;       
 }
+
+.header-center h1, .header-center h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 5px 0;
+}
+
+.hindi-bold, .eng-bold {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+a{
+    cursor: pointer;
+}

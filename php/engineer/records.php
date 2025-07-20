@@ -116,7 +116,7 @@ $stmt->close();
           <input type="date" name="to" value="<?= htmlspecialchars($date_to) ?>">
 
           <input type="text" name="search" placeholder="Search..." value="<?= htmlspecialchars($search_term) ?>">
-          <button type="submit">Apply</button>
+          <button type="submit">Apply Filters</button>
         </form>
 
         <table>

@@ -136,10 +136,10 @@ $result = $conn->query($query);
     </main>
   </div>
 
-  <div class="modal" id="viewModal" style="display:none">
+  <div class="modal" id="viewModal">
     <div class="modal-content">
       <span class="close-btn" onclick="document.getElementById('viewModal').style.display='none'">&times;</span>
-      <h2>Complaint Details</h2>
+      <h3>Complaint Details</h3>
       <div id="modalContent"></div>
     </div>
   </div>
@@ -167,7 +167,7 @@ $result = $conn->query($query);
   }
 
   document.getElementById('modalContent').innerHTML = html;
-  document.getElementById('viewModal').style.display = 'block';
+  document.getElementById('viewModal').style.display = 'flex';
 }
 
   </script>

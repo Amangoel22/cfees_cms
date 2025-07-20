@@ -42,10 +42,11 @@ $data = $result->fetch_assoc();
         <img src="../../../logos/logo-left.png" alt="Left Logo" />
       </div>
       <div class="header-center">
-        <h1 class="title-main">Defence Research and Development Organisation</h1>
-        <p class="govt-line">Ministry of Defence, Government of India</p>
-        <p class="sub-title">Centre for Fire, Explosive and Environment Safety (CFEES)</p>
-      </div>
+      <h1 class="hindi-bold">अग्नि, पर्यावरण तथा विस्फोटक सुरक्षा केंद्र (CFEES)</h1>
+      <p class="hindi-regular">रक्षा मन्त्रालय, भारत सरकार</p>
+      <h2 class="eng-bold">Centre for Fire, Explosive and Environment Safety (CFEES)</h2>
+      <p class="eng-regular">Ministry of Defence, Government of India</p>
+    </div>
       <div class="logo-box right">
         <img src="../../../logos/logo-right.png" alt="Right Logo" />
       </div>

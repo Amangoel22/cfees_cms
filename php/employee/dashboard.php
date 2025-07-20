@@ -481,11 +481,7 @@ $feedback_sql = "
     
     <p><strong>Registered at:</strong> <span id="modal-created"></span></p>
     <p><strong>Last Updated:</strong> <span id="modal-updated"></span></p>
-  </div>
-</div>
-
-
-   <div id="edit-delete-btns" style="display: none;">
+       <div id="edit-delete-btns" style="display: none;">
   <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <input type="hidden" name="edit_complaint_id" id="edit-id">
     <input type="hidden" name="edit_action" value="1">
@@ -497,6 +493,11 @@ $feedback_sql = "
     <button type="submit" class="submit-btn">Delete</button>
   </form>
 </div>
+  </div>
+</div>
+
+
+
 
 <!-- Feedback View -->
     </div>
@@ -667,5 +668,8 @@ window.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
+  <footer class="main-footer">
+    <p>Copyright © 2025, DRDO, Ministry of Defence, Government of India</p>
+  </footer>
 </body>
 </html>
