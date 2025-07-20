@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - DRDO CFEES</title>
+  <link rel="stylesheet" href="../css/index/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <header class="main-header">
+    <div class="header-inner">
+      <div class="logo-box left">
+        <img src="../logos/logo-left.png" alt="Left Logo" />
+      </div>
+      <div class="header-center">
+      <h1 class="hindi-bold">अग्नि, पर्यावरण तथा विस्फोटक सुरक्षा केंद्र (CFEES)</h1>
+      <p class="hindi-regular">रक्षा मन्त्रालय, भारत सरकार</p>
+      <h2 class="eng-bold">Centre for Fire, Explosive and Environment Safety (CFEES)</h2>
+      <p class="eng-regular">Ministry of Defence, Government of India</p>
+    </div>
+      <div class="logo-box right">
+        <img src="../logos/logo-right.png" alt="Right Logo" />
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="whitebg">
+      <h2>Log In</h2>
+      
+      <form action="../php/admin/login_admin.php" method="POST">
+        <div class="group">
+          <label for="username"><i class="fa-solid fa-user"></i> Username:</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+
+        <div class="group">
+          <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+
+        <div class="password-wrapper">
+          <button type="submit" class="btn small">Log In</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+
+  <footer class="main-footer">
+    <p>Copyright © 2025, DRDO, Ministry of Defence, Government of India</p>
+  </footer>
+</body>
+
+</html>
