@@ -79,7 +79,7 @@ while ($row = $result->fetch_assoc()) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Dashboard</title>
+  <title>Super-Admin Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../../css/index/index.css" />
   <link rel="stylesheet" href="../../../css/admin/superadmin_dashboard.css" />
@@ -146,8 +146,8 @@ while ($row = $result->fetch_assoc()) {
           <input type="date" name="to" id="to" value="<?= htmlspecialchars($to); ?>">
         </div></label>
         <div>
-          <label for="search">Search:
-          <input type="text" name="search" id="search" value="<?= htmlspecialchars($search); ?>" placeholder="Search complaints...">
+          <label for="search">Search By:
+          <input type="text" name="search" id="search" value="<?= htmlspecialchars($search); ?>" placeholder="Search...">
         </div></label>
         <div>
           <button type="submit">Apply Filters</button>
@@ -159,14 +159,15 @@ while ($row = $result->fetch_assoc()) {
         <table>
           <thead>
             <tr>
+              <th>S.No.</th>
               <th>Complaint ID</th>
               <th>Title</th>
-              <th>Employee</th>
+              <th>Employee Name</th>
               <th>Location</th>
               <th>Type</th>
               <th>Status</th>
-              <th>Registered</th>
-              <th>Resolved</th>
+              <th>Registered Date and Time</th>
+              <th>Resolved Date and Time</th>
               <th>Rating</th>
               <th>Review</th>
             </tr>
@@ -176,6 +177,7 @@ while ($row = $result->fetch_assoc()) {
             if (count($complaints) === 0) {
               echo "<tr><td colspan='10'>No complaints found.</td></tr>";
             } else {
+              $index = 1;
               foreach ($complaints as $c) {
                 $statusClass = strtolower(str_replace(' ', '-', $c['status']));
                $empName = ($c['emp_first_name'] ?? '') . ' ' . ($c['emp_last_name'] ?? '');
@@ -184,6 +186,7 @@ while ($row = $result->fetch_assoc()) {
                 $rating = $c['rating'] ?? '-';
 
                 echo "<tr>
+  <td>" . $index++ . "</td>
   <td>CMP" . htmlspecialchars($c['complaint_id']) . "</td>
   <td>" . htmlspecialchars($c['title']) . "</td>
   <td>" . htmlspecialchars($c['emp_first_name'] . ' ' . $c['emp_last_name']) . "</td>
@@ -236,7 +239,7 @@ while ($row = $result->fetch_assoc()) {
       <p><strong>Engineer Feedback:</strong> ${data.engineer_feedback ?? '-'}</p>
       <p><strong>Admin Feedback:</strong> ${data.admin_feedback ?? '-'}</p>
       <p><strong>Rating:</strong> ${data.rating ?? '-'}</p>
-      <p><strong>Reason:</strong> ${data.reason ?? '-'}</p>
+      <p><strong>Remarks:</strong> ${data.reason ?? '-'}</p>
     `;
 
     modal.style.display = "flex";

@@ -71,7 +71,8 @@ $data = $result->fetch_assoc();
           <div class="group"><label><i class="fa-solid fa-trash"></i>Is Deleted:</label><input type="tel" value="<?php echo $data['is_deleted']; ?>" readonly /></div>
           <div class="group"><label><i class="fa-solid fa-address-book"></i>Username:</label><input type="text" value="<?php echo $data['user_name']; ?>" readonly /></div>
           <div class="group password-group"><label><i class="fa-solid fa-key"></i>Password:</label><input type="password" id="pass" value="<?php echo $data['password']; ?>" readonly /><i class="fa fa-eye toggle-password" onclick="togglePassword()"></i></div>
-        </div>      </form>
+        </div>      
+      </form>
     </div>
   </main>
 

@@ -96,25 +96,28 @@ $result = $conn->query($query);
           <button type="submit">Apply Filters</button>
         </form>
       </section>
-        <h2>All Complaints</h2>
+        <h2>All Software Complaints</h2>
 
         <table>
           <thead>
             <tr>
+              <th>S.No.</th>
               <th>Complaint ID</th>
               <th>Title</th>
-              <th>Date</th>
+              <th>Registered Date and Time</th>
               <th>Status</th>
               <th>Type</th>
               <th>Location</th>
-              <th>Resolved Time</th>
+              <th>Resolved Date and Time</th>
               <th>Details</th>
             </tr>
           </thead>
           <tbody>
             <?php if ($result && $result->num_rows > 0): ?>
+              <?php $index = 1; ?>
               <?php while ($row = $result->fetch_assoc()): ?>
                 <tr>
+                  <td><?php echo $index++; ?></td>
                   <td>CMP<?= $row['complaint_id'] ?></td>
                   <td><?= htmlspecialchars($row['title']) ?></td>
                   <td><?= date('Y-m-d H:i A', strtotime($row['created_at'])) ?></td>
@@ -150,7 +153,7 @@ $result = $conn->query($query);
 
   <script>
  function viewDetails(data) {
-  let html = `<p><strong>ID:</strong> CMP${data.complaint_id}</p>` +
+  let html = `<p><strong>Complaint ID:</strong> CMP${data.complaint_id}</p>` +
              `<p><strong>Title:</strong> ${data.title}</p>` +
              `<p><strong>Description:</strong> ${data.description}</p>` +
              `<p><strong>Location:</strong> ${data.location}</p>` +
@@ -162,7 +165,7 @@ $result = $conn->query($query);
             `<p><strong>Employee Rating:</strong> ${data.rating || 'N/A'}</p>`;
 
     if (data.reason) {
-      html += `<p><strong>Reason:</strong> ${data.reason}</p>`;
+      html += `<p><strong>Remarks:</strong> ${data.reason}</p>`;
     }
   }
 

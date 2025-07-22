@@ -50,7 +50,7 @@ $complaints = $conn->query("
     .status.pending { color: orange; font-weight: bold; }
     .status.active { color: blue; font-weight: bold; }
     .status.resolved { color: green; font-weight: bold; }
-    .status.not-resolved { color: grey; font-weight: bold; }
+    .status.not-resolved { color: red; font-weight: bold; }
     .resolved-indicator,
     .not-resolved-indicator {
     background-color: green;
@@ -112,26 +112,26 @@ $complaints = $conn->query("
         <table class="complaint-table">
           <thead>
             <tr>
+              <th>S.No.</th>
               <th>Complaint ID</th>
               <th>Employee Name</th>
-
               <th>Intercom</th>
               <th>Location</th>
               <th>Complaint Title</th>
               <th>Status</th>
-              <th>Review</th>
+              <th>View</th>
               <th>Resolve</th>
             </tr>
           </thead>
           <tbody>
           <?php if ($complaints && $complaints->num_rows > 0):
+          $index = 1;
             while ($row = $complaints->fetch_assoc()): ?>
             <tr>
+              <td><?php echo $index++;?></td>
               <td>CMP<?php echo $row['complaint_id']; ?></td>
-              <td><?php echo htmlspecialchars(trim(($row['first_name'] ?? '') . ' ' . ($row['middle_name'] ?? '') . ' ' . ($row['last_name'] ?? ''))); ?></td>
-
-        <td><?php echo htmlspecialchars($row['intercom'] !== null ? $row['intercom'] : 'N/A'); ?></td>
-
+              <td><?php echo htmlspecialchars(trim(($row['first_name'] ?? '') . ' ' . ($row['middle_name'] ?? '') . ' ' . ($row['last_name'] ?? ''))); ?></td>  
+              <td><?php echo htmlspecialchars($row['intercom'] !== null ? $row['intercom'] : 'N/A'); ?></td>
               <td><?php echo htmlspecialchars($row['location'] ?? ''); ?></td>
               <td><?php echo htmlspecialchars($row['title'] ?? ''); ?></td>
               <td><span class="status <?php echo strtolower(str_replace(' ', '-', $row['engineer_status'] ?? '')); ?>"><?php echo htmlspecialchars($row['engineer_status'] ?? ''); ?></span></td>
@@ -144,7 +144,7 @@ $complaints = $conn->query("
                   data-location="<?php echo htmlspecialchars($row['location'] ?? ''); ?>"
                   data-status="<?php echo htmlspecialchars($row['engineer_status'] ?? '', ENT_QUOTES); ?>"
 
-                >Review</button>
+                >View</button>
               </td>
               <td>
   <?php if ($row['engineer_status'] === 'Resolved'): ?>
@@ -155,7 +155,6 @@ $complaints = $conn->query("
     <button class="resolve-btn" data-id="<?php echo $row['complaint_id']; ?>">Resolve</button>
   <?php endif; ?>
 </td>
-
             </tr>
           <?php endwhile; else: ?>
             <tr><td colspan="7">No complaints assigned.</td></tr>
@@ -180,7 +179,7 @@ $complaints = $conn->query("
       <p><strong>Description:</strong> <span id="r_desc"></span></p>
       <p><strong>Intercom:</strong> <span id="r_intercom"></span></p>
       <p><strong>Location:</strong> <span id="r_location"></span></p>
-      <button id="markReviewBtn" onclick="markReviewed()">Mark as Reviewed</button>
+      <button id="markReviewBtn" onclick="markReviewed()">Mark as Viewed</button>
     </div>
   </div>
 

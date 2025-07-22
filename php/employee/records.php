@@ -147,7 +147,7 @@ header('Content-Type: text/html');
         <h2>Your Complaints</h2>
         <table id="complaintTable">
           <thead>
-            <tr><th>Complaint ID</th><th>Title</th><th>Date</th><th>Type</th><th>Location</th><th>Status</th><th>Resolved Time</th><th>Details</th></tr>
+            <tr><tH>S.No.</th><th>Complaint ID</th><th>Title</th><th>Date</th><th>Complaint Type</th><th>Location</th><th>Status</th><th>Resolved Date and Time</th><th>Details</th></tr>
           </thead>
           <tbody></tbody>
         </table>
@@ -174,31 +174,34 @@ header('Content-Type: text/html');
       const d = new Date(dateStr);
       return d.toLocaleString('en-GB');
     }
-    function populateTable(data) {
-      tbody.innerHTML = "";
-      if (!data.length) {
-        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center">No complaints found</td></tr>';
-        return;
-      }
-      data.forEach(c => {
-        const tr = document.createElement('tr');
-        const statusClass = c.status.toLowerCase();
-        tr.innerHTML = `
-          <td>CMP${c.complaint_id}</td>
-          <td>${c.title}</td>
-          <td>${formatDate(c.created_at)}</td>
-          <td>${c.type}</td>
-          <td>${c.location}</td>
-          <td><span class="status ${statusClass}">${c.status}</span></td>
-          <td>${c.status === 'Resolved' ? formatDate(c.updated_at) : '-'}</td>
-          <td><button class="view-btn" onclick='showDetails(${JSON.stringify(c)})'>View</button></td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
+   function populateTable(data) {
+  tbody.innerHTML = "";
+  if (!data.length) {
+    tbody.innerHTML = '<tr><td colspan="9" style="text-align:center">No complaints found</td></tr>';
+    return;
+  }
+
+  data.forEach((c, index) => {
+    const tr = document.createElement('tr');
+    const statusClass = c.status.toLowerCase();
+    tr.innerHTML = `
+      <td>${index + 1}</td>
+      <td>CMP${c.complaint_id}</td>
+      <td>${c.title}</td>
+      <td>${formatDate(c.created_at)}</td>
+      <td>${c.type}</td>
+      <td>${c.location}</td>
+      <td><span class="status ${statusClass}">${c.status}</span></td>
+      <td>${c.status === 'Resolved' ? formatDate(c.updated_at) : '-'}</td>
+      <td><button class="view-btn" onclick='showDetails(${JSON.stringify(c)})'>View</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
     function showDetails(c) {
       let html = `<h3>Complaint Details</h3>
-        <p><strong>ID:</strong> CMP${c.complaint_id}</p>
+        <p><strong>Complaint ID:</strong> CMP${c.complaint_id}</p>
         <p><strong>Title:</strong> ${c.title}</p>
         <p><strong>Description:</strong> ${c.description}</p>
         <p><strong>Type:</strong> ${c.type}</p>

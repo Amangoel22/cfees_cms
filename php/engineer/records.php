@@ -122,20 +122,22 @@ $stmt->close();
         <table>
           <thead>
             <tr>
+              <th>S.No.</th>
               <th>Complaint ID</th>
               <th>Title</th>
-              <th>Type</th>
+              <th>Complaint Type</th>
               <th>Location</th>
-              <th>Employee</th>
-              <th>Registered</th>
+              <th>Employee Name</th>
+              <th>Registered Date and Time</th>
               <th>Intercom</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($complaints as $c): ?>
+            <?php $index = 1; foreach ($complaints as $c): ?>
               <tr>
+                <td><?= $index++ ?></td>
                 <td><?= $c['complaint_id'] ?></td>
                 <td><?= htmlspecialchars($c['title']) ?></td>
                 <td><?= htmlspecialchars($c['type']) ?></td>
@@ -168,15 +170,15 @@ $stmt->close();
     function showDetails(data) {
       let html = `
         <h3>Complaint Details</h3>
-        <p><strong>ID:</strong> ${data.complaint_id}</p>
+        <p><strong>Complaint ID:</strong> ${data.complaint_id}</p>
         <p><strong>Title:</strong> ${data.title}</p>
         <p><strong>Description:</strong> ${data.description}</p>
         <p><strong>Location:</strong> ${data.location}</p>
-        <p><strong>Type:</strong> ${data.type}</p>
+        <p><strong>Complaint Type:</strong> ${data.type}</p>
         <p><strong>Intercom:</strong> ${data.intercom ?? '-'}</p>
         <p><strong>Status:</strong> ${data.status}</p>
-        <p><strong>Employee:</strong> ${(data.emp_first_name ?? '') + ' ' + (data.emp_last_name ?? '')}</p>
-        <p><strong>Registered At:</strong> ${data.created_at}</p>
+        <p><strong>Employee Name:</strong> ${(data.emp_first_name ?? '') + ' ' + (data.emp_last_name ?? '')}</p>
+        <p><strong>Registered Date and Time:</strong> ${data.created_at}</p>
         <p><strong>Engineer Feedback:</strong> ${data.solution ?? '-'}</p>
       `;
       document.getElementById('modalContent').innerHTML = html;

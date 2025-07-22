@@ -471,10 +471,10 @@ $feedback_sql = "
     <span class="modal-tag" id="modal-tag" style="display: none;"></span>
     <h3>Complaint Details</h3>
 
-    <p><strong>ID:</strong> <span id="modal-id"></span></p>
+    <p><strong>Complaint ID:</strong> <span id="modal-id"></span></p>
     <p><strong>Title:</strong> <span id="modal-title"></span></p>
     <p><strong>Description:</strong> <span id="modal-desc"></span></p>
-    <p><strong>Type:</strong> <span id="modal-type"></span></p>
+    <p><strong>Complaint Type:</strong> <span id="modal-type"></span></p>
     <p><strong>Status:</strong> <span id="modal-status"></span></p>
     <p><strong>Location:</strong> <span id="modal-location"></span></p>
     <p><strong>Assigned Engineer:</strong> <span id="modal-engg"></span></p>
@@ -508,10 +508,10 @@ $feedback_sql = "
     <span class="close-btn feedback-close" onclick="document.getElementById('feedbackModal').style.display='none'">&times;</span>
 
     <h3>Complaint Details</h3>
-    <p><strong>ID:</strong> <span id="f_id"></span></p>
+    <p><strong>Complaint ID:</strong> <span id="f_id"></span></p>
     <p><strong>Title:</strong> <span id="f_title"></span></p>
     <p><strong>Description:</strong> <span id="f_desc"></span></p>
-    <p><strong>Type:</strong> <span id="f_type"></span></p>
+    <p><strong>Complaint Type:</strong> <span id="f_type"></span></p>
     <p><strong>Location:</strong> <span id="f_location"></span></p>
     <p><strong>Assigned Engineer:</strong> <span id="f_engineer"></span></p>
     <p><strong>Engineer Feedback:</strong> <span id="f_solution"></span></p>

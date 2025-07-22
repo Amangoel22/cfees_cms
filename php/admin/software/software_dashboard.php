@@ -179,6 +179,7 @@ while ($eng = $engineers->fetch_assoc()) {
       <table>
         <thead>
           <tr>
+            <th>S.No.</th>
             <th>Complaint ID</th>
             <th>Employee Name</th>
             <th>Intercom</th>
@@ -191,8 +192,10 @@ while ($eng = $engineers->fetch_assoc()) {
         </thead>
         <tbody>
         <?php if ($complaints && $complaints->num_rows > 0): 
+        $index = 1;
           while ($row = $complaints->fetch_assoc()): ?>
           <tr>
+            <td><?php echo $index++; ?></td>
             <td>CMP<?php echo $row['complaint_id']; ?></td>
             <td><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></td>
             <td><?php echo htmlspecialchars($row['intercom']); ?></td>

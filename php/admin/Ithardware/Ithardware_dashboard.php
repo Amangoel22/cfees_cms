@@ -109,7 +109,7 @@ while ($eng = $engineers->fetch_assoc()) {
       <nav class="sidebar-nav">
         <ul>
           <li><a href="MyProfile_Ithardware.php"><i class="fa-solid fa-user"></i> User Profile</a></li>
-          <li><a href="./records.php"><i class="fa-solid fa-screwdriver-wrench"></i> Past Complaints</a>
+          <li><a href="./records.php"><i class="fa-solid fa-screwdriver-wrench"></i> Complaints Record</a>
           </li>
           <li><a href="./logout.php"><i class="fa fa-right-from-bracket"></i> Logout</a></li>
         </ul>
@@ -125,6 +125,7 @@ while ($eng = $engineers->fetch_assoc()) {
   <table>
     <thead>
       <tr>
+        <th>S.No.</th>
         <th>Complaint ID</th>
         <th>Employee Name</th>
         <th>Intercom</th>
@@ -137,8 +138,10 @@ while ($eng = $engineers->fetch_assoc()) {
     </thead>
     <tbody>
   <?php if ($complaints && $complaints->num_rows > 0): ?>
+    <?php $index = 1; ?>
     <?php while ($row = $complaints->fetch_assoc()): ?>
       <tr>
+        <td><?php echo $index++; ?></td>
         <td>CMP<?php echo $row['complaint_id']; ?></td>
         <td><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></td>
         <td><?php echo htmlspecialchars($row['intercom'], ENT_QUOTES); ?></td>
@@ -167,7 +170,18 @@ while ($eng = $engineers->fetch_assoc()) {
 
 <!-- Assign Engineer -->
           <?php if ($row['assigned_engineer_username']): ?>
-            <span><?php echo htmlspecialchars($row['assigned_engineer_username']); ?></span>
+<?php
+$assignedUsername = $row['assigned_engineer_username'];
+$assignedFullName = $assignedUsername;
+
+foreach ($engineer_list as $eng) {
+    if ($eng['username'] === $assignedUsername) {
+        $assignedFullName = $eng['full_name'];
+        break;
+    }
+}
+?>
+<span><?php echo htmlspecialchars($assignedFullName); ?></span>
           <?php else: ?>
             <button class="assign" onclick="openAssignModal('<?php echo $row['complaint_id']; ?>')" data-id="<?php echo $row['complaint_id']; ?>">Assign</button>
           <?php endif; ?>
